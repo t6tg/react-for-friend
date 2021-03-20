@@ -21,6 +21,18 @@ const FormLogin = () => {
 
     return (
         <div>
+            <img
+                src={
+                    'https://bams.in.th/wp-content/uploads/2020/06/login-Bams6.png'
+                }
+                alt="image01"
+            />
+            <img
+                src={'../images/image-01.jpeg'}
+                alt="image-02"
+                lazy="loading"
+            />
+            <br />
             <label htmlFor="username">Username : </label>
             <input
                 id="username"
