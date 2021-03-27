@@ -14,6 +14,12 @@ const NavBar = () => {
                     <NavLink to="/register" className="nav-link">
                         Register
                     </NavLink>
+                    <NavLink to="/count" className="nav-link">
+                        Count
+                    </NavLink>
+                    <NavLink to="/graph" className="nav-link">
+                        Graph
+                    </NavLink>
                 </Nav>
                 <Form inline>
                     <FormControl

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const FormLogin = () => {
     const [data, setData] = useState({
@@ -6,6 +7,7 @@ const FormLogin = () => {
         password: '',
     })
     const [isShow, setShow] = useState(true)
+    const [isSubmit, setSubmit] = useState(false)
 
     useEffect(() => {
         console.log('Mount Component')
@@ -26,11 +28,6 @@ const FormLogin = () => {
                     'https://bams.in.th/wp-content/uploads/2020/06/login-Bams6.png'
                 }
                 alt="image01"
-            />
-            <img
-                src={'../images/image-01.jpeg'}
-                alt="image-02"
-                lazy="loading"
             />
             <br />
             <label htmlFor="username">Username : </label>
@@ -57,6 +54,22 @@ const FormLogin = () => {
                 }}
             />{' '}
             <br />
+            <button
+                disabled={isSubmit}
+                className="btn btn-primary mx-4"
+                onClick={async () => {
+                    setSubmit(true)
+                    const s = await axios.post(
+                        'http://localhost:8080/api/v1/users/login',
+                        data
+                    )
+                    console.log(s)
+                    alert(s.request.response)
+                    setSubmit(false)
+                }}
+            >
+                Login
+            </button>
             <hr />
             <button
                 onClick={() => {
